@@ -1,0 +1,35 @@
+@startuml
+
+
+
+class Component{
+    Meta meta
+    ComponentSpec spec
+}
+
+interface ComponentDefine {
+    string Name()
+    string Description()
+    void Install()
+    string Template()
+    map[]string Parameters()
+
+}
+
+
+class ComponentSpec {
+    string type
+    Trait trait
+}
+
+class Meta {
+    string Name
+    string namespace
+    map[string]string Annotations
+}
+
+interface Trait{
+
+}
+
+@enduml
