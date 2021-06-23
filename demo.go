@@ -37,16 +37,20 @@ type ComponentDefine interface {
 	Install() error
 	Template() string
 	Parameters() map[string]interface{}
+	PreInstall() error
+	Healthy() bool
 }
 
 type ComponentSpec struct {
-	ComponentDefine
+	Type string
+	//... some field according to the type ComponentDefine
+	abs   []Ability
 	trait []Trait
 }
 
 type Meta struct {
 	Name        string
-	namespace   string
+	Namespace   string
 	Annotations map[string]string
 }
 type Trait interface {
